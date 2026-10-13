@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ske2231.github.io/3j-mobile-auto-repair/sitemap.xml

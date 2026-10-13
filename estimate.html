@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instant Repair Estimate — 3J Mobile Auto Repair LLC</title>
+  <meta name="description" content="Get an instant auto repair estimate from 3J Mobile Auto Repair LLC. Pick your vehicle and the repair — see labor, parts, fees, and total up front." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:," />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./index.html"><span class="brand-mark">3J</span><span><span data-cfg="business_name">3J Mobile Auto Repair LLC</span><small>Mobile mechanic · Oklahoma City metro</small></span></a>
+    <a class="call-btn" data-cfg-href="phone_href" href="tel:+14052218900">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+      <span data-cfg="phone_display">(405) 221-8900</span>
+    </a>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2 class="section-title">Instant repair estimate</h2>
+    <p class="section-sub">Pick your vehicle and the repair — you'll see labor, parts, the $40 mobile service fee, and your total. Takes under a minute.</p>
+
+    <div class="est-layout">
+      <div>
+        <div class="panel">
+          <div class="ph">1 · Your vehicle</div>
+          <div class="pb">
+            <div class="grid2">
+              <div class="field"><label class="lbl" for="year">Year</label><input type="number" id="year" placeholder="2018" min="1980" max="2027" /></div>
+              <div class="field"><label class="lbl" for="make">Make</label><input type="text" id="make" placeholder="Honda" /></div>
+              <div class="field"><label class="lbl" for="model">Model</label><input type="text" id="model" placeholder="Accord" /></div>
+              <div class="field"><label class="lbl" for="vtype">Vehicle type</label>
+                <select id="vtype">
+                  <option value="sedan">Sedan / standard car</option>
+                  <option value="compact">Compact / subcompact</option>
+                  <option value="suv">SUV / crossover</option>
+                  <option value="truck">Pickup truck</option>
+                  <option value="van">Van</option>
+                  <option value="performance">Performance / specialty</option>
+                </select></div>
+              <div class="field"><label class="lbl" for="engine">Engine</label>
+                <select id="engine">
+                  <option value="i4">3- or 4-cylinder gas</option>
+                  <option value="v6">6-cylinder gas</option>
+                  <option value="v8">8+ cylinder gas</option>
+                  <option value="diesel">Diesel</option>
+                  <option value="hybrid">Hybrid / plug-in hybrid</option>
+                  <option value="ev">Electric</option>
+                </select></div>
+              <div class="field"><label class="lbl" for="drivetrain">Drivetrain</label>
+                <select id="drivetrain">
+                  <option value="fwd">FWD</option><option value="rwd">RWD</option>
+                  <option value="awd">AWD</option><option value="4wd">4WD</option>
+                </select></div>
+            </div>
+            <div class="factor-chips" id="factorChips" aria-live="polite">
+              <span id="chipLabor">Labor ×1.00</span>
+              <span id="chipParts">Parts ×1.00</span>
+            </div>
+            <p class="hint">Some vehicles cost more to work on — trucks, diesels, and European makes take longer and need pricier parts. We adjust the starting estimate for that.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="ph">2 · The repair</div>
+          <div class="pb">
+            <div class="field">
+              <label class="lbl" for="jobSearch">Find your repair</label>
+              <input type="text" id="jobSearch" placeholder="Search: brakes, battery, starter…" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label class="lbl" for="jobSelect">Repair</label>
+              <select id="jobSelect"></select>
+              <p class="hint" id="jobScope"></p>
+            </div>
+            <div class="grid2">
+              <div class="field"><label class="lbl" for="laborHours">Labor hours</label><input type="number" id="laborHours" step="0.1" min="0" value="1.0" /><p class="hint">Typical range auto-filled — adjust if you know more.</p></div>
+              <div class="field"><label class="lbl" for="laborRate">Labor rate ($/hr)</label><input type="number" id="laborRate" step="1" min="0" value="120" /></div>
+            </div>
+            <div class="field">
+              <label class="lbl" for="partsCost">Parts cost ($)</label>
+              <input type="number" id="partsCost" step="1" min="0" value="0" placeholder="0" />
+              <p class="hint">Don't know the parts price? Leave it at $0 — we'll confirm the exact parts cost before any work begins.</p>
+            </div>
+            <div class="field">
+              <label class="lbl" for="issue">Describe the issue (optional)</label>
+              <textarea id="issue" placeholder="Grinding noise when braking, started last week…"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="ph">3 · Fees &amp; tax</div>
+          <div class="pb">
+            <div class="tline" style="margin-bottom:12px"><span>Mobile service fee (we come to you)</span><strong data-cfg-money="truck_roll">$40.00</strong></div>
+            <div class="checkline" style="margin-bottom:14px">
+              <input type="checkbox" id="emergency" />
+              <label for="emergency" style="font-weight:600">This is an emergency — I need 24/7 service <span style="color:var(--muted)">(adds <span data-cfg-money="emergency_surcharge">$95.00</span> after-hours surcharge)</span></label>
+            </div>
+            <div class="grid2">
+              <div class="field"><label class="lbl" for="taxRate">Sales tax (%)</label><input type="number" id="taxRate" step="0.01" min="0" value="8.625" /></div>
+              <div class="field"><label class="lbl" for="markup">Parts markup (%)</label><input type="number" id="markup" step="0.1" min="0" value="0" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel" style="position:sticky;top:76px">
+          <div class="ph">Your estimate</div>
+          <div class="pb">
+            <div class="totals">
+              <div class="tline"><span>Labor</span><strong id="tLabor">$0.00</strong></div>
+              <div class="tline"><span>Parts</span><strong id="tParts">$0.00</strong></div>
+              <div class="tline"><span>Fees</span><strong id="tFees">$0.00</strong></div>
+              <div class="tline"><span>Tax</span><strong id="tTax">$0.00</strong></div>
+              <div class="tline grand"><span>Estimated total</span><strong id="tTotal">$0.00</strong></div>
+            </div>
+            <div class="mt"><a class="btn primary block" id="bookBtn" href="book.html">Book this service →</a></div>
+            <div class="mt"><a class="btn quiet block" data-cfg-href="phone_href" href="tel:+14052218900">…or call <span data-cfg="phone_display">(405) 221-8900</span></a></div>
+            <p class="disclaimer">Preliminary estimate only — not a final quote. Final pricing is confirmed after the mechanic inspects your vehicle and verifies exact parts. Labor ranges are typical book times; your vehicle may differ. Additional work always needs your approval first.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fine">© 2026 <span data-cfg="business_name">3J Mobile Auto Repair LLC</span> · <a data-cfg-href="phone_href" href="tel:+14052218900"><span data-cfg="phone_display">(405) 221-8900</span></a> · Serving the <span data-cfg="service_area">Oklahoma City metro area</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+<script src="estimate-engine.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var EE = window.EstimateEngine, JJ = window.JJ;
+
+  function fillJobs(filter) {
+    var sel = $('jobSelect');
+    var q = (filter || '').toLowerCase();
+    sel.innerHTML = '';
+    var first = true;
+    EE.jobs.forEach(function (j, i) {
+      if (q && (j.job + ' ' + j.scope).toLowerCase().indexOf(q) === -1) return;
+      var o = document.createElement('option');
+      o.value = i;
+      o.textContent = j.job + '  (' + j.min.toFixed(1) + '–' + j.max.toFixed(1) + ' hr)';
+      sel.appendChild(o);
+      if (first) { sel.value = i; first = false; }
+    });
+    if (!sel.options.length) {
+      var o = document.createElement('option');
+      o.value = 'custom'; o.textContent = 'Something else — describe below';
+      sel.appendChild(o);
+    }
+    onJobChange();
+  }
+
+  function currentJob() {
+    var v = $('jobSelect').value;
+    if (v === 'custom' || v === '') return null;
+    return EE.jobs[parseInt(v, 10)];
+  }
+
+  function onJobChange() {
+    var j = currentJob();
+    if (j) {
+      $('laborHours').value = EE.midpoint(j);
+      $('jobScope').textContent = j.scope + ' Typical range: ' + j.min.toFixed(1) + '–' + j.max.toFixed(1) + ' hr.';
+    } else {
+      $('jobScope').textContent = 'Tell us what is happening in the issue box — we will diagnose it on arrival.';
+    }
+    recalc();
+  }
+
+  function factors() {
+    return EE.vehicleFactors({
+      type: $('vtype').value, engine: $('engine').value, drivetrain: $('drivetrain').value,
+      make: $('make').value, model: $('model').value, year: $('year').value
+    });
+  }
+
+  function recalc() {
+    var f = factors();
+    $('chipLabor').textContent = 'Labor ×' + f.labor.toFixed(2);
+    $('chipParts').textContent = 'Parts ×' + f.parts.toFixed(2);
+    var r = EE.calculate({
+      laborHours: $('laborHours').value,
+      laborRate: $('laborRate').value,
+      partsCost: $('partsCost').value,
+      markupPct: $('markup').value,
+      suppliesPct: 0,
+      taxPct: $('taxRate').value,
+      truckRoll: JJ.config.truck_roll,
+      emergency: $('emergency').checked,
+      emergencyFee: JJ.config.emergency_surcharge
+    }, f);
+    $('tLabor').textContent = JJ.money(r.labor);
+    $('tParts').textContent = JJ.money(r.parts);
+    $('tFees').textContent = JJ.money(r.fees);
+    $('tTax').textContent = JJ.money(r.tax);
+    $('tTotal').textContent = JJ.money(r.total);
+    window._lastEstimate = r;
+
+    // Prefill the booking page link.
+    var j = currentJob();
+    var service = j ? j.job : ($('issue').value.trim() || 'General diagnosis');
+    var vehicle = [$('year').value, $('make').value, $('model').value].filter(Boolean).join(' ');
+    var params = new URLSearchParams({ service: service });
+    if (vehicle) params.set('vehicle', vehicle);
+    params.set('estimate', r.total.toFixed(2));
+    if ($('emergency').checked) params.set('emergency', '1');
+    if ($('issue').value.trim()) params.set('notes', $('issue').value.trim().slice(0, 300));
+    $('bookBtn').href = '/book.html?' + params.toString();
+  }
+
+  ['year','make','model','vtype','engine','drivetrain','laborHours','laborRate','partsCost','taxRate','markup','issue'].forEach(function (id) {
+    $(id).addEventListener('input', recalc);
+  });
+  $('emergency').addEventListener('change', recalc);
+  $('jobSearch').addEventListener('input', function () { fillJobs(this.value); });
+  $('jobSelect').addEventListener('change', onJobChange);
+
+  JJ.loadConfig().then(function (cfg) {
+    $('laborRate').value = cfg.labor_rate_default;
+    $('taxRate').value = cfg.tax_rate_default;
+    recalc();
+  });
+  fillJobs('');
+})();
+</script>
+</body>
+</html>
